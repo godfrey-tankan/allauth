@@ -28,11 +28,10 @@ def profile_edit_view(request):
             form.save()
             return redirect('profile')
         
-    # if request.path == reverse('profile-onboarding'):
-    #     onboarding = True
-    # else:
-    #     onboarding = False
-    onboarding = False
+    if request.path == reverse('profile-onboarding'):
+        onboarding = True
+    else:
+        onboarding = False
       
     return render(request, 'a_users/profile_edit.html', { 'form':form, 'onboarding':onboarding })
 
