@@ -80,13 +80,13 @@ def profile_emailverify(request):
     return redirect('profile-settings')
 
 
-# @login_required
-# def profile_delete_view(request):
-#     user = request.user
-#     if request.method == "POST":
-#         logout(request)
-#         user.delete()
-#         messages.success(request, 'Account deleted, what a pity')
-#         return redirect('home')
+@login_required
+def profile_delete_view(request):
+    user = request.user
+    if request.method == "POST":
+        logout(request)
+        user.delete()
+        messages.success(request, 'Account deleted, what a pity')
+        return redirect('home')
     
-#     return render(request, 'a_users/profile_delete.html')
+    return render(request, 'a_users/profile_delete.html')
