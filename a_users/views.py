@@ -74,10 +74,10 @@ def profile_emailchange(request):
     return redirect('home')
 
 
-# @login_required
-# def profile_emailverify(request):
-#     send_email_confirmation(request, request.user)
-#     return redirect('profile-settings')
+@login_required
+def profile_emailverify(request):
+    send_email_confirmation(request, request.user)
+    return redirect('profile-settings')
 
 
 # @login_required

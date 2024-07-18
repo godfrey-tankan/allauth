@@ -1,6 +1,6 @@
 from django.dispatch import receiver
 from django.db.models.signals import post_save, pre_save
-# from allauth.account.models import EmailAddress
+from allauth.account.models import EmailAddress
 from django.contrib.auth.models import User
 from .models import Profile
 
@@ -14,7 +14,6 @@ def user_postsave(sender, instance, created, **kwargs):
             user = user,
         )
     else:
-        return None
         # update allauth emailaddress if exists 
         try:
             email_address = EmailAddress.objects.get_primary(user)
