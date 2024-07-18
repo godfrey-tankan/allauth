@@ -100,13 +100,14 @@
 	
 {% include 'includes/messages.html' %}
 
+{% include 'includes/header.html' %}
+
    
 
-    <content class="block w-full">
-        <div class="max-w-4xl mx-auto px-8 py-24">
-            <h1>New Project</h1>
-        </div>
-    </content>
+{% block layout %}
+{% endblock %}
+
+{% include 'includes/footer.html' %}
 
 </body>
 </html>
