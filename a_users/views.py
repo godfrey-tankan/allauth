@@ -86,7 +86,7 @@ def profile_delete_view(request):
     if request.method == "POST":
         logout(request)
         user.delete()
-        messages.success(request, 'Account deleted, what a pity')
+        messages.success(request, 'Your Account has been deleted!')
         return redirect('home')
     
     return render(request, 'a_users/profile_delete.html')
