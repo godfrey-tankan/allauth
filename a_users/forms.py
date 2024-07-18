@@ -14,9 +14,9 @@ class ProfileForm(ModelForm):
         }
         
         
-# class EmailForm(ModelForm):
-#     email = forms.EmailField(required=True)
+class EmailForm(ModelForm):
+    email = forms.EmailField(required=True)
 
-#     class Meta:
-#         model = User
-#         fields = ['email']
+    class Meta:
+        model = User
+        fields = ['email']

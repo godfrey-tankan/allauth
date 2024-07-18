@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'a_users',
+    'django_htmx',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',    
+    'allauth.account.middleware.AccountMiddleware',  
+    'django_htmx.middleware.HtmxMiddleware',  
 ]
 
 ROOT_URLCONF = 'a_core.urls'
