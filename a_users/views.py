@@ -17,22 +17,16 @@ def profile_view(request, username=None):
             return redirect('account_login')
     return render(request, 'a_users/profile.html', {'profile':profile})
 
-
 @login_required
 def profile_edit_view(request):
     form = ProfileForm(instance=request.user.profile)  
-    
+
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
             return redirect('profile')
-        
-    if request.path == reverse('profile-onboarding'):
-        onboarding = True
-    else:
-        onboarding = False
-      
+    onboarding = request.path == reverse('profile-onboarding')
     return render(request, 'a_users/profile_edit.html', { 'form':form, 'onboarding':onboarding })
 
 
@@ -80,9 +74,21 @@ def profile_emailverify(request):
     return redirect('profile-settings')
 
 def get_user_profiles(request):
-    users = User.objects.all()
-    return render(request, 'a_users/all_users.html', {'users':users})
-
+    profiles = Profile.objects.select_related('user').all()
+    profile_data = [
+        {
+            'user': {
+                'id': profile.user.id,
+                'username': profile.user.username,
+                'email': profile.user.email,
+            },
+            'image': profile.avatar,
+            'displayname': profile.displayname,
+            'info': profile.info,
+        }
+        for profile in profiles
+    ]
+    return render(request, 'a_users/users.html', {'profiles':profile_data})
 @login_required
 def profile_delete_view(request):
     user = request.user

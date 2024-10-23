@@ -9,8 +9,9 @@
         <div class="text-gray-400 mb-2 -mt-3">@{{ profile.user.username }}</div>
         {% if profile.info %}
         <div class="mt-8">{{ profile.info|linebreaksbr }}</div>
-        {% endif %}  
+        {% endif %}
     </div>
+    <a style='color:blue;text-decoration:underline;' href='users/'>view all users</a>
 </div>
 
 {% endblock %}
