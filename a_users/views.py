@@ -79,6 +79,9 @@ def profile_emailverify(request):
     send_email_confirmation(request, request.user)
     return redirect('profile-settings')
 
+def get_user_profiles(request):
+    users = User.objects.all()
+    return render(request, 'a_users/all_users.html', {'users':users})
 
 @login_required
 def profile_delete_view(request):
