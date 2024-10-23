@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -57,7 +59,6 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',  
     'django_htmx.middleware.HtmxMiddleware',  
 ]
-
 ROOT_URLCONF = 'a_core.urls'
 
 TEMPLATES = [
@@ -122,6 +123,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = 'media/'
@@ -136,7 +138,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+WHITENOISE_USE_FINDERS = True
 # Allauth settings
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
