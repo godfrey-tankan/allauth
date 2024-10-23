@@ -10,4 +10,5 @@ urlpatterns = [
     path('emailverify/', profile_emailverify, name="profile-emailverify"),
     path('delete/', profile_delete_view, name="profile-delete"),
     path('users/', get_user_profiles, name='all_users'),
+    path('generate-report/', generate_report, name='generate_report'),
 ]

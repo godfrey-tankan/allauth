@@ -2,6 +2,10 @@
 {% block content %}
 <div class="container mx-auto py-8">
     <h1 class="text-3xl font-bold mb-4">All Users</h1>
+    
+    <!-- Report Generation Button -->
+    <a href="/profile/generate-report/" class="bg-green-500 text-white px-4 py-2 rounded mb-4">Generate Report</a>
+    
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {% for profile in profiles %}
         <div class="bg-white shadow-md rounded-lg p-4 cursor-pointer" onclick="openModal('{{ profile.id }}', '{{ profile.name }}', '{{ profile.image }}', '{{ profile.info }}')">
@@ -49,13 +53,11 @@
     }
 
     function editUser() {
-        // Implement edit functionality (e.g., redirect to edit page)
         alert('Edit user functionality to be implemented.');
         closeModal();
     }
 
     function deleteUser() {
-        // Implement delete functionality (e.g., send delete request to server)
         alert('Delete user functionality to be implemented.');
         closeModal();
     }

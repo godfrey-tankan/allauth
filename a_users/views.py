@@ -17,6 +17,9 @@ def profile_view(request, username=None):
             return redirect('account_login')
     return render(request, 'a_users/profile.html', {'profile':profile})
 
+def generate_report(request):
+    profiles = User.objects.all()  # Replace with your data fetching logic
+    return render(request,'a_users/report_preview.html', {"profiles":profiles})
 @login_required
 def profile_edit_view(request):
     form = ProfileForm(instance=request.user.profile)  

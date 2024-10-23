@@ -1,0 +1,41 @@
+{% extends 'layouts/blank.html' %}
+{% block content %}
+<style>
+    @media print {
+        /* Hide everything except the table and its header */
+        header * {
+            margin: 0;
+            display: none;
+        }
+        .print-btn{
+            display: none;
+        }
+    }
+</style>
+<div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-4">Users Report</h1>
+    
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+            <tr>
+                <th class="border border-gray-300 p-4">Name</th>
+                <th class="border border-gray-300 p-4">Email</th>
+                <th class="border border-gray-300 p-4">Date Joined</th>
+                <th class="border border-gray-300 p-4">Last Login</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profiles %}
+            <tr>
+                <td class="border border-gray-300 p-4">{{ profile.username }}</td>
+                <td class="border border-gray-300 p-4">{{ profile.email }}</td>
+                <td class="border border-gray-300 p-4">{{ profile.date_joined }}</td>
+                <td class="border border-gray-300 p-4">{{ profile.last_login }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button onclick="window.print()" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 print-btn">Print Report</button>
+</div>
+{% endblock %}
