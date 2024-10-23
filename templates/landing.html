@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full fade-in">
+        <h1 class="text-3xl font-bold mb-4">Welcome to Our App!</h1>
+        <p class="mb-6 text-gray-700">To get started, you can either sign in to your existing account or create a new one. Below are the steps:</p>
+        <h2 class="text-xl font-semibold mb-2">How to Sign In:</h2>
+        <ul class="list-disc list-inside mb-4">
+            <li>Enter your email and password.</li>
+            <li>Click on the "Sign In" button.</li>
+        </ul>
+        <h2 class="text-xl font-semibold mb-2">How to Sign Up:</h2>
+        <ul class="list-disc list-inside mb-4">
+            <li>Click on the "Sign Up" link.</li>
+            <li>Fill in the required information.</li>
+            <li>Submit the form to create your account.</li>
+        </ul>
+        <a href="/signin" class="block bg-blue-500 text-white text-center px-6 py-2 rounded hover:bg-blue-600 transition duration-300">Get Started</a>
+    </div>
+
+</body>
+</html>
